@@ -1,0 +1,101 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>우리는 우주먼지</title>
+    <style>
+        #sun {
+            position: absolute;
+            top: 50%;
+            margin-top: -175;
+            left: 50%;
+            margin-left: -175;
+            background: url('sun-emoji-by-twitter.png') no-repeat center;
+            background-size: 350px;
+            height: 350px;
+            width: 350px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        #earth {
+            background-image:url("world-emoji-by-twitter_1.png");
+            position: absolute;
+            background-size: 30px;
+            height: 30px;
+            width: 30px;
+        }
+
+        #moon {
+            background-image:url("full-moon-emoji-by-twitter.png");
+            position: absolute;
+            background-size: 10px;
+            height: 10px;
+            width: 10px;
+            }
+    </style>
+    <script>
+        var angle = 0;
+        setInterval( // earth
+            function(){
+                document.getElementById('earth').style.left=Math.cos(angle)*420+window.innerWidth/2-15+"px";
+                document.getElementById('earth').style.top=Math.sin(angle)*420+window.innerHeight/2-15+"px";
+                angle=angle+0.01;
+                angle_drgree= angle * (180 / Math.PI);
+                // console.log(angle_drgree%10);
+                // console.log((angle_drgree%10)<(3.3));
+                if((angle_drgree%3)<(1)){
+                    document.getElementById('earth').style.backgroundImage = "url('world-emoji-by-twitter_1.png')";
+                }else if((angle_drgree%3)<(2)){
+                    document.getElementById('earth').style.backgroundImage = "url('world-emoji-by-twitter_2.png')";
+                }else if((angle_drgree%3)<(3)){
+                    document.getElementById('earth').style.backgroundImage = "url('world-emoji-by-twitter_3.png')";
+                };
+                if(angle>=(Math.PI)*2){angle=0};
+            },
+            100
+        );
+        setInterval( // moon
+            function(){
+                document.getElementById('moon').style.left
+                =Math.cos(angle)*420+window.innerWidth/2-5
+                +Math.cos(angle*12)*30
+                +"px";
+                document.getElementById('moon').style.top
+                =Math.sin(angle)*420+window.innerHeight/2-5
+                +Math.sin(angle*12)*30
+                +"px";
+                angle=angle+0.01;
+                angle_drgree= angle * (180 / Math.PI);
+                // console.log(angle_drgree%10);
+                // console.log((angle_drgree%10)<(3.3));
+                // if((angle_drgree%3)<(1)){
+                //     document.getElementById('earth').style.backgroundImage = "url('world-emoji-by-twitter_1.png')";
+                // }else if((angle_drgree%3)<(2)){
+                //     document.getElementById('earth').style.backgroundImage = "url('world-emoji-by-twitter_2.png')";
+                // }else if((angle_drgree%3)<(3)){
+                //     document.getElementById('earth').style.backgroundImage = "url('world-emoji-by-twitter_3.png')";
+                // };
+                if(angle>=(Math.PI)*2){angle=0};
+            },
+            100
+        );
+    </script>
+</head>
+
+<body>
+    <!-- 
+    지구가 태양 주위를 공전하는 화면을 만들어 보도록 합시다.
+    -->
+    <div id="back_area">
+        <div id="sun">
+        </div>
+        <div id="earth">
+        </div>
+        <div id="moon">
+        </div>
+    </div>
+
+</body>
+
+</html>
