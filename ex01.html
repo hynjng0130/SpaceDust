@@ -42,8 +42,6 @@
                 document.getElementById('earth').style.top=Math.sin(angle)*420+window.innerHeight/2-15+"px";
                 angle=angle+0.01;
                 angle_drgree= angle * (180 / Math.PI);
-                // console.log(angle_drgree%10);
-                // console.log((angle_drgree%10)<(3.3));
                 if((angle_drgree%3)<(1)){
                     document.getElementById('earth').style.backgroundImage = "url('world-emoji-by-twitter_1.png')";
                 }else if((angle_drgree%3)<(2)){
@@ -67,15 +65,6 @@
                 +"px";
                 angle=angle+0.01;
                 angle_drgree= angle * (180 / Math.PI);
-                // console.log(angle_drgree%10);
-                // console.log((angle_drgree%10)<(3.3));
-                // if((angle_drgree%3)<(1)){
-                //     document.getElementById('earth').style.backgroundImage = "url('world-emoji-by-twitter_1.png')";
-                // }else if((angle_drgree%3)<(2)){
-                //     document.getElementById('earth').style.backgroundImage = "url('world-emoji-by-twitter_2.png')";
-                // }else if((angle_drgree%3)<(3)){
-                //     document.getElementById('earth').style.backgroundImage = "url('world-emoji-by-twitter_3.png')";
-                // };
                 if(angle>=(Math.PI)*2){angle=0};
             },
             100
@@ -85,7 +74,7 @@
 
 <body>
     <!-- 
-    지구가 태양 주위를 공전하는 화면을 만들어 보도록 합시다.
+    지구가 태양 주위를 공전하는 화면
     -->
     <div id="back_area">
         <div id="sun">
